@@ -1,0 +1,23 @@
+
+<h1 ><i><a name="previous"><center>WELCOME TO ONLINE ATTENDANCE MANGEMENT<center></a></i></h1>
+<h5><u><tt><center>An easier way to make your record of attendance<center></tt></u><h5>
+<hr />
+</center>
+<div id="menu" align="left" >
+<a href="/att/index.html/">HOME</a> |
+<a href="file:///media/manish/A8886BCB886B971A/dlkjo/project/contact.html" target="_self">CONTACT</a> |
+<a href="file:///media/manish/A8886BCB886B971A/dlkjo/project/about.html" target="_self">ABOUT</a>
+</div>
+<p>The Subjects are Available:</p>
+{% if latest_subject_list %}
+    <ul>
+    {% for subject in latest_subject_list %}
+        <li><a href="{% url 'att:detail' subject.id %}">{{ subject.subject_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No subjects are available.</p>
+{% endif %}
+<br><br><br><br><br><br>
+<hr /><hr />
+<h3>IF YOU WANT TO ADD MORE SUBJECTS ON THIS SITE, PLEASE CONTACT ADMIN::MANISH , GMAIL ID::manish14555@gmail.com</h3>

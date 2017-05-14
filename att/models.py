@@ -1,0 +1,20 @@
+from django.db import models
+
+
+class Subject(models.Model):
+    semester_text = models.CharField(max_length=200)
+    subject_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+    def __str__(self):
+        return self.subject_text
+
+
+class Student(models.Model):
+    subsem = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    student_text = models.CharField(max_length=200)
+    roll_no= models.CharField(max_length=200)
+    present = models.IntegerField(default=0)
+    absent = models.IntegerField(default=0)
+    total = models.IntegerField(default=0)
+    def __str__(self):
+        return self.student_text

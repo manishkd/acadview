@@ -1,0 +1,18 @@
+<h1 color="red"><i><a name="previous"><center>WELCOME TO ONLINE ATTENDANCE MANGEMENT<center></a></i></h1>
+<h5><u><tt><center>An easier way to make your record of attendance<center></tt></u><h5>
+<hr />
+</center>
+<div id="menu" align="left" >
+<a href="file:///media/manish/A8886BCB886B971A/dlkjo/project/projecta.html" target="_self">HOME</a> |
+<a href="file:///media/manish/A8886BCB886B971A/dlkjo/project/contact.html" target="_self">CONTACT</a> |
+<a href="file:///media/manish/A8886BCB886B971A/dlkjo/project/about.html" target="_self">ABOUT</a>
+</div>
+<h1>This subject is realted to CSE Branch AND Semester::{{ subject.semester_text }}</h1>
+<h3>SUBJECT NAME::{{ subject.subject_text }}</h3>
+<h3>RESULTS UPTO NOW::</h3>
+<ul>
+{% for choice in subject.student_set.all %}
+    <li>{{ choice.roll_no }}--{{ choice.student_text }} -- {{ choice.present }} present{{ choice.present|pluralize }}-- {{ choice.absent }} absent{{ choice.absent|pluralize }} -- {{ choice.total }} total{{ choice.total|pluralize }}</li>
+{% endfor %}
+</ul>
+<a href="{% url 'att:detail' subject.id %}">Attendance again?</a>
